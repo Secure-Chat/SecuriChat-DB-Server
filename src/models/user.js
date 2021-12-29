@@ -12,8 +12,10 @@ const userSchema = new Schema(
     username: { type: String },
     password: { type: String },
     friendCode: { type: String },
-    friendsList: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-    rooms: [String],
+    friendsList: [{
+      friendName: String,
+      room: String
+    }],
   },
   { toJSON: { virtuals: true },
     toObject: {virtuals: true }}
