@@ -49,7 +49,6 @@ module.exports = {
     try {
       const user = await User.findOne({ _id: req.userInfo._id });
       const friend = await User.findOne({ friendCode: req.body.friendCode });
-      console.log(friend)
       const roomKey = uuidv4();
       user.friendsList.push({friendName: friend.username, room: roomKey});
       friend.friendsList.push({friendName: user.username, room: roomKey});
